@@ -3,7 +3,7 @@
         <div class="flex">
             <button v-for="tab in tabs" :key="tab.id" @click="activeTab = tab.id"
                 class="py-4 px-10 text-center font-medium relative"
-                :class="[activeTab === tab.id ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-700']">
+                :class="[activeTab === tab.id ? 'text-sky-600 border-b-2 border-sky-600' : 'text-gray-700']">
                 {{ tab.label }}
                 <span v-if="tab.count > 0" class="ml-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
                     {{ tab.count }}

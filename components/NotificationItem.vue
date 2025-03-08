@@ -2,7 +2,7 @@
     <div class="border-b border-gray-200 p-4 hover:bg-sky-50 cursor-pointer">
         <div class="flex items-center">
             <div class="flex-shrink-0">
-                <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white font-medium">
+                <div class="w-10 h-10 rounded-full bg-blue-800 flex items-center justify-center text-white font-medium">
                     {{ getInitials(notification.name) }}
                 </div>
             </div>

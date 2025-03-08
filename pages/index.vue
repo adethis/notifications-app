@@ -28,11 +28,10 @@
                                     <h2 class="text-xl font-semibold text-gray-800 text-center">Notifications</h2>
                                 </div>
 
-                                <!-- Tabs -->
                                 <div class="flex border-b border-gray-200">
                                     <button @click="activeTab = 'reminder'"
                                         class="flex-1 py-3 font-medium text-center relative"
-                                        :class="activeTab === 'reminder' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500'">
+                                        :class="activeTab === 'reminder' ? 'text-sky-600 border-b-2 border-sky-600' : 'text-gray-500'">
                                         Reminder
                                         <span v-if="reminderCount > 0"
                                             class="ml-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 inline-flex items-center justify-center">
@@ -41,7 +40,7 @@
                                     </button>
                                     <button @click="activeTab = 'update'"
                                         class="flex-1 py-3 font-medium text-center relative"
-                                        :class="activeTab === 'update' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-500'">
+                                        :class="activeTab === 'update' ? 'text-sky-600 border-b-2 border-sky-600' : 'text-gray-500'">
                                         Update
                                         <span v-if="updateCount > 0"
                                             class="ml-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 inline-flex items-center justify-center">
@@ -50,7 +49,6 @@
                                     </button>
                                 </div>
 
-                                <!-- Notification List -->
                                 <div class="max-h-96 overflow-y-auto">
                                     <ActionButtons :buttons="actionButtons" />
 
@@ -71,12 +69,27 @@
                                             :key="notification.id" :notification="notification" />
                                     </div>
                                 </div>
+
+                                <div class="flex items-center">
+                                    <button
+                                        class="flex justify-center items-center gap-1 px-4 py-3 bg-sky-50/50 w-full text-sm text-sky-600 font-medium"
+                                        @click="handleMouseLeave">
+                                        <span class="text-sky-600">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-3"
+                                                viewBox="0 0 576 512" fill="currentColor">
+                                                <path
+                                                    d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z" />
+                                            </svg>
+                                        </span>
+                                        See more
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="flex items-center">
                         <div
-                            class="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-medium">
+                            class="w-10 h-10 rounded-full bg-blue-800 text-white flex items-center justify-center font-medium">
                             R</div>
                         <span class="ml-2 text-gray-800 font-medium">Ramsey</span>
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-1 text-gray-600" viewBox="0 0 20 20"
@@ -128,9 +141,9 @@ export default {
                 { id: 'update', label: 'Update', count: 3 }
             ],
             actionButtons: [
-                { id: 'followup', label: 'Follow Up', hasNotification: false },
-                { id: 'withdrawal', label: 'Withdrawal', hasNotification: false },
-                { id: 'documentIn', label: 'Document IN', hasNotification: true }
+                { id: 'followup', label: 'Follow Up', hasNotification: false, hasActive: true },
+                { id: 'withdrawal', label: 'Withdrawal', hasNotification: true, hasActive: false },
+                { id: 'documentIn', label: 'Document IN', hasNotification: true, hasActive: false }
             ],
             notifications: [
                 {
